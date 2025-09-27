@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Tang Xuan Duc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Reset & Fonts ===== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'consolas', sans-serif;
+            background: #111;
+            color: #eee;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        /* ===== Header ===== */
+        
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            /* background: linear-gradient(270deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00ab, #ff0000); */
+            background: linear-gradient(270deg, #ff0000, #ff7300);
+            background-size: 1800% 1800%;
+            animation: rainbowBG 20s ease infinite;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+        }
+        
+        @keyframes rainbowBG {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+        
+        header h1 {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            padding: 5px 10px;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        /* Language switch */
+        
+        #langSwitch {
+            border: none;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            border-radius: 20px;
+            padding: 5px 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        #langSwitch:hover {
+            background: #eee;
+        }
+        /* ===== Sections ===== */
+        
+        .tab-content {
+            display: none;
+            padding: 10px 40px;
+            min-height: 80vh;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeUp 0.7s ease;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #00ffd5;
+            background: #111;
+            position: sticky;
+            top: 70px;
+            z-index: 10;
+            padding: 10px 0;
+        }
+        /* About */
+        
+        .about-info {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .about-info img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #00ffd5;
+        }
+        
+        .about-details ul {
+            list-style: none;
+        }
+        
+        .about-details ul li {
+            margin-bottom: 8px;
+        }
+        /* Resume (timeline) */
+        /* Timeline container */
+        
+        .timeline {
+            margin: 20px 0;
+            position: relative;
+        }
+        /* Mỗi item */
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+        /* Chấm tròn */
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            /* canh theo text */
+            width: 12px;
+            height: 12px;
+            background: #00ffd5;
+            border-radius: 50%;
+        }
+        /* Line chỉ nối trong item */
+        
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            /* giữa chấm */
+            top: 1.5em;
+            /* ngay dưới chấm */
+            width: 2px;
+            height: calc(100% - 1.5em);
+            background: #00ffd5;
+        }
+        /* Title */
+        
+        .timeline-item h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fffb00;
+        }
+        /* Skills Accordion */
+        
+        .skills-accordion {
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+        
+        .skills-accordion .accordion-item {
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+        }
+        
+        .skills-accordion .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 8px;
+        }
+        
+        .skills-accordion .accordion-header i.fa-chevron-down {
+            transition: transform .28s ease;
+            color: #00ffd5;
+        }
+        
+        .skills-accordion .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .36s cubic-bezier(.2, .8, .2, 1), padding .28s;
+            padding: 0 16px;
+        }
+        
+        .skills-accordion .accordion-body.open {
+            padding: 12px 16px 18px;
+        }
+        
+        .skills-accordion .skill {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+        }
+        
+        .skills-accordion .skill:last-child {
+            border-bottom: none;
+        }
+        
+        .skills-accordion .skill-name {
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .skills-accordion .skill-bar-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .skills-accordion .skill-bar {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #00ffd5, #002bff);
+            transition: width 1.2s ease;
+            border-radius: 8px;
+        }
+        
+        .skills-accordion .accordion-header.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        /* Portfolio */
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+        
+        .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.3s;
+            color: #fff;
+        }
+        
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        /* Contact */
+        
+        .contact-form {
+            max-width: 500px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .contact-form button {
+            padding: 10px 20px;
+            background: #00ffd5;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: #00c3a5;
+        }
+        /* Footer */
+        
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #111;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Tang Xuan Duc</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-target="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-target="about">About</a></li>
+                <li><a href="#" class="nav-link" data-target="resume">Resume</a></li>
+                <li><a href="#" class="nav-link" data-target="skills">Skills</a></li>
+                <li><a href="#" class="nav-link" data-target="portfolio">Portfolio</a></li>
+                <li><a href="#" class="nav-link" data-target="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="langSwitch">EN</button>
+    </header>
+
+    <!-- ===== CONTENT ===== -->
+    <main>
+        <!-- Home -->
+        <div id="home" class="tab-content active">
+            <section>
+                <h2>Welcome</h2>
+                <p>Hello! I am Tang Xuan Duc, a passionate .NET Developer. Explore my portfolio to know more about me.
+                </p>
+            </section>
+        </div>
+
+        <!-- About -->
+        <div id="about" class="tab-content">
+            <section>
+                <h2>About Me</h2>
+                <div class="about-info">
+                    <img src="assets/profile.JPG" alt="Profile">
+                    <div class="about-details">
+                        <p>I am a dedicated developer with strong skills in backend systems and modern web technologies.
+                        </p>
+                        <ul>
+                            <li><i class="fa fa-user"></i> Name: Tang Xuan Duc</li>
+                            <li><i class="fa fa-calendar"></i> DOB: 1995</li>
+                            <li><i class="fa fa-map-marker"></i> Location: Viet Nam</li>
+                            <li><i class="fa fa-envelope"></i> Email: example@mail.com</li>
+                            <li><i class="fa fa-phone"></i> Phone: +84 123 456 789</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Resume -->
+        <div id="resume" class="tab-content">
+            <section>
+                <h2>Resume</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Senior .NET Developer</h3>
+                        <p>ABC Company | 2021 - Present</p>
+                        <p>Lead projects, mentor juniors, design scalable systems.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>.NET Developer</h3>
+                        <p>XYZ Corp | 2018 - 2021</p>
+                        <p>Worked on enterprise apps, API integrations, database optimization.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <section>
+                <h2>Skills</h2>
+                <div class="skills-accordion">
+
+                    <!-- Backend -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-server"></i>
+                                Backend</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name">C# / .NET</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">ASP.NET Core</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-code"></i>
+                                Frontend</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name">JavaScript</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">HTML / CSS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">HTML / CSS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">HTML / CSS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">HTML / CSS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button">
+                            <span><i class="fa fa-database"></i> Database</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name">SQL Server</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name">PostgreSQL</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Portfolio -->
+        <div id="portfolio" class="tab-content">
+            <section>
+                <h2>Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="assets/profile.JPG" alt="Project 1">
+                        <div class="overlay">
+                            <h3>Project 1</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/440943948_1893713421056256_296664867897576233_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHcXhJ7GwdTTJCJ1Kd1FdnNm5QA7GhEIJSblADsaEQglP5vyA9d72IreVVBtD6NRnnwwNXDDkQ5hVlR2q5S5_3p&_nc_ohc=L5AkoEQ4pooQ7kNvwEIsJ1I&_nc_oc=AdmLaX2zDFVdad9APu2Ts8QJ1nULcy8MBXoQhlKL7fiE8GR9drepr2ssODkqtC0y4XY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=dV-qfA_O3ix4hiwZ9EPGWQ&oh=00_Afaq2nQi0qQ281BxEVudzaovVILhkQt1B-cqgOWI00JcbQ&oe=68DD6C7B"
+                            alt="Project 1">
+                        <div class="overlay">
+                            <h3>Project 1</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/440943948_1893713421056256_296664867897576233_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHcXhJ7GwdTTJCJ1Kd1FdnNm5QA7GhEIJSblADsaEQglP5vyA9d72IreVVBtD6NRnnwwNXDDkQ5hVlR2q5S5_3p&_nc_ohc=L5AkoEQ4pooQ7kNvwEIsJ1I&_nc_oc=AdmLaX2zDFVdad9APu2Ts8QJ1nULcy8MBXoQhlKL7fiE8GR9drepr2ssODkqtC0y4XY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=dV-qfA_O3ix4hiwZ9EPGWQ&oh=00_Afaq2nQi0qQ281BxEVudzaovVILhkQt1B-cqgOWI00JcbQ&oe=68DD6C7B"
+                            alt="Project 1">
+                        <div class="overlay">
+                            <h3>Project 1</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/440943948_1893713421056256_296664867897576233_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHcXhJ7GwdTTJCJ1Kd1FdnNm5QA7GhEIJSblADsaEQglP5vyA9d72IreVVBtD6NRnnwwNXDDkQ5hVlR2q5S5_3p&_nc_ohc=L5AkoEQ4pooQ7kNvwEIsJ1I&_nc_oc=AdmLaX2zDFVdad9APu2Ts8QJ1nULcy8MBXoQhlKL7fiE8GR9drepr2ssODkqtC0y4XY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=dV-qfA_O3ix4hiwZ9EPGWQ&oh=00_Afaq2nQi0qQ281BxEVudzaovVILhkQt1B-cqgOWI00JcbQ&oe=68DD6C7B"
+                            alt="Project 1">
+                        <div class="overlay">
+                            <h3>Project 1</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/440943948_1893713421056256_296664867897576233_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHcXhJ7GwdTTJCJ1Kd1FdnNm5QA7GhEIJSblADsaEQglP5vyA9d72IreVVBtD6NRnnwwNXDDkQ5hVlR2q5S5_3p&_nc_ohc=L5AkoEQ4pooQ7kNvwEIsJ1I&_nc_oc=AdmLaX2zDFVdad9APu2Ts8QJ1nULcy8MBXoQhlKL7fiE8GR9drepr2ssODkqtC0y4XY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=dV-qfA_O3ix4hiwZ9EPGWQ&oh=00_Afaq2nQi0qQ281BxEVudzaovVILhkQt1B-cqgOWI00JcbQ&oe=68DD6C7B"
+                            alt="Project 1">
+                        <div class="overlay">
+                            <h3>Project 1</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/440943948_1893713421056256_296664867897576233_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHcXhJ7GwdTTJCJ1Kd1FdnNm5QA7GhEIJSblADsaEQglP5vyA9d72IreVVBtD6NRnnwwNXDDkQ5hVlR2q5S5_3p&_nc_ohc=L5AkoEQ4pooQ7kNvwEIsJ1I&_nc_oc=AdmLaX2zDFVdad9APu2Ts8QJ1nULcy8MBXoQhlKL7fiE8GR9drepr2ssODkqtC0y4XY&_nc_zt=23&_nc_ht=scontent.fsgn5-10.fna&_nc_gid=dV-qfA_O3ix4hiwZ9EPGWQ&oh=00_Afaq2nQi0qQ281BxEVudzaovVILhkQt1B-cqgOWI00JcbQ&oe=68DD6C7B"
+                            alt="Project 2">
+                        <div class="overlay">
+                            <h3>Project 2</h3>
+                            <p>Short description</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="tab-content">
+            <section>
+                <h2>Contact</h2>
+                <div class="contact-form">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="5" placeholder="Message"></textarea>
+                    <button>Send Message</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        © 2025 Tang Xuan Duc | All rights reserved.
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script>
+        // Tab switching
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const target = this.getAttribute("data-target");
+
+                document.querySelectorAll(".tab-content").forEach(sec => sec.classList.remove("active"));
+                document.getElementById(target).classList.add("active");
+
+                document.querySelectorAll(".nav-link").forEach(nav => nav.classList.remove("active"));
+                this.classList.add("active");
+
+                // Run skill bars if Skills tab is active
+                if (target === "skills") {
+                    document.querySelectorAll(".skill-bar").forEach(bar => {
+                        const level = bar.getAttribute("data-level");
+                        bar.style.width = level;
+                    });
+                }
+            });
+        });
+
+        // Language toggle
+        const langSwitch = document.getElementById("langSwitch");
+        let currentLang = "EN";
+        langSwitch.addEventListener("click", () => {
+            currentLang = currentLang === "EN" ? "VI" : "EN";
+            langSwitch.innerText = currentLang;
+            if (currentLang === "VI") {
+                document.querySelector("#about h2").innerText = "Giới thiệu";
+                document.querySelector("#resume h2").innerText = "Kinh nghiệm";
+                document.querySelector("#skills h2").innerText = "Kỹ năng";
+                document.querySelector("#portfolio h2").innerText = "Dự án";
+                document.querySelector("#contact h2").innerText = "Liên hệ";
+            } else {
+                document.querySelector("#about h2").innerText = "About Me";
+                document.querySelector("#resume h2").innerText = "Resume";
+                document.querySelector("#skills h2").innerText = "Skills";
+                document.querySelector("#portfolio h2").innerText = "Portfolio";
+                document.querySelector("#contact h2").innerText = "Contact";
+            }
+        });
+
+        // Accordion expand/collapse
+        (function() {
+            const closeOthers = false; // đổi true nếu muốn chỉ mở 1 block cùng lúc
+
+            function openBody(body, header) {
+                body.style.maxHeight = body.scrollHeight + 50 + 'px';
+                body.classList.add('open');
+                header.classList.add('active');
+
+                body.querySelectorAll('.skill-bar').forEach(bar => {
+                    const level = bar.getAttribute('data-level') || '0%';
+                    setTimeout(() => bar.style.width = level, 30);
+                });
+            }
+
+            function closeBody(body, header) {
+                body.style.maxHeight = null;
+                body.classList.remove('open');
+                header.classList.remove('active');
+                body.querySelectorAll('.skill-bar').forEach(bar => {
+                    bar.style.width = '0';
+                });
+            }
+
+            document.querySelectorAll('.skills-accordion .accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const body = item.querySelector('.accordion-body');
+                    const isOpen = body.classList.contains('open');
+
+                    if (isOpen) {
+                        closeBody(body, header);
+                    } else {
+                        if (closeOthers) {
+                            document.querySelectorAll('.skills-accordion .accordion-body.open').forEach(b => {
+                                closeBody(b, b.parentElement.querySelector('.accordion-header'));
+                            });
+                        }
+                        openBody(body, header);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
