@@ -1,0 +1,79 @@
+.homeSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  background: #111;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255,255,255,0.01);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,255,213,0.10);
+  padding: 40px 24px;
+}
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #00ffd5;
+  margin-bottom: 18px;
+  object-fit: cover;
+  box-shadow: 0 4px 24px rgba(0,255,213,0.10);
+}
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00ffd5;
+  margin-bottom: 6px;
+}
+.role {
+  font-size: 1.3rem;
+  color: #fffb00;
+  margin-bottom: 10px;
+}
+.slogan {
+  font-size: 1.08rem;
+  color: #eee;
+  margin-bottom: 18px;
+  font-style: italic;
+}
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  background: #00ffd5;
+  color: #111;
+  padding: 8px 22px;
+  border-radius: 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,255,213,0.08);
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+.btn:hover {
+  background: #fffb00;
+  color: #111;
+}
+.socials {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+.socials a {
+  color: #00ffd5;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+.socials a:hover {
+  color: #ff7300;
+}

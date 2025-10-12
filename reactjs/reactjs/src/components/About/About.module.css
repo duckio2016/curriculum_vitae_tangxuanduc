@@ -1,0 +1,126 @@
+.aboutSection {
+  padding: 32px 0 0 0;
+  background: #f8fafc;
+  min-height: 60vh;
+}
+.heading {
+  color: #1a237e;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.infoCard {
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(120deg, #f8fafc 60%, #e3e9f7 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  padding: 36px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 40px;
+  align-items: flex-start;
+}
+.avatarCol {
+  flex: 0 0 300px;
+  max-width: 340px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.avatar {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  margin-bottom: 16px;
+  border: 4px solid #fff;
+}
+.name {
+  margin: 0;
+  font-weight: bold;
+  color: #263159;
+}
+.role {
+  color: #1976d2;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.details {
+  margin-top: 18px;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.descCol {
+  flex: 1 1 320px;
+  min-width: 260px;
+  color: #222;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.badge {
+  background: #e3e9f7;
+  color: #263159;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.summary {
+  padding-left: 20px;
+  color: #222;
+  margin-bottom: 0;
+}
+.careerGoal {
+  background: linear-gradient(90deg, #ffe082 0%, #fffde7 100%);
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 12px rgba(255,193,7,0.10);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border-left: 6px solid #ffb300;
+}
+.careerIcon {
+  font-size: 2rem;
+  color: #ffb300;
+  line-height: 1;
+}
+.careerTitle {
+  font-weight: 700;
+  color: #b26a00;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+.careerDesc {
+  color: #795548;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+@media (max-width: 900px) {
+  .infoCard { flex-direction: column; align-items: center; }
+  .descCol { margin-top: 0; }
+}

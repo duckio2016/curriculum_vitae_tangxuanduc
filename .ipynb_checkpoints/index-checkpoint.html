@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Tang Xuan Duc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Tang Xuan Duc</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-target="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-target="about">About</a></li>
+                <li><a href="#" class="nav-link" data-target="resume">Resume</a></li>
+                <li><a href="#" class="nav-link" data-target="skills">Skills</a></li>
+                <li><a href="#" class="nav-link" data-target="portfolio">Portfolio</a></li>
+                <li><a href="#" class="nav-link" data-target="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="langSwitch">EN</button>
+    </header>
+
+    <!-- ===== CONTENT ===== -->
+    <main>
+        <!-- Home -->
+        <div id="home" class="tab-content active">
+            <section>
+                <div class="home-hero">
+                    <img src="assets/img/profile.JPG" alt="Tang Xuan Duc" class="home-avatar">
+                    <h1 class="home-name">Tang Xuan Duc</h1>
+                    <h2 class="home-role">Backend Software Engineer</h2>
+                    <div class="home-slogan">"Desire to become a Fullstack Developer, always learning and dedicated to
+                        excellence."</div>
+                    <div class="home-actions">
+                        <a href="#portfolio" class="home-btn"
+                            onclick="document.querySelector('[data-target=portfolio]').click()">Portfolio</a>
+                        <a href="#contact" class="home-btn"
+                            onclick="document.querySelector('[data-target=contact]').click()">Contact</a>
+                        <a href="assets/CV_TangXuanDuc.pdf" class="home-btn" download>Download CV</a>
+                    </div>
+                    <div class="home-socials">
+                        <a href="https://github.com/duckio2016" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/duckio2016" target="_blank" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="mailto:duckio2016@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Popup Modal for Portfolio Detail -->
+        <div id="portfolioModal" class="portfolio-modal">
+            <button id="portfolioPrev"
+                style="position:absolute;left:2vw;top:50%;transform:translateY(-50%);z-index:10001;font-size:2.2rem;background:rgba(0,0,0,0.18);color:#00ffd5;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;display:none;align-items:center;justify-content:center;"><i
+                    class="fas fa-chevron-left"></i></button>
+            <div class="portfolio-modal-content" style="position:relative;">
+                <span class="portfolio-modal-close">&times;</span>
+                <div id="portfolioModalHeader"
+                    style="text-align:center;font-size:1.5rem;font-weight:700;color:#00ffd5;margin-bottom:10px;"></div>
+                <div id="portfolioModalBody"></div>
+            </div>
+            <button id="portfolioNext"
+                style="position:absolute;right:2vw;top:50%;transform:translateY(-50%);z-index:10001;font-size:2.2rem;background:rgba(0,0,0,0.18);color:#00ffd5;border:none;border-radius:50%;width:48px;height:48px;cursor:pointer;display:none;align-items:center;justify-content:center;"><i
+                    class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- About -->
+        <div id="about" class="tab-content">
+            <section>
+                <h2 style="color:#1a237e; font-weight:700; letter-spacing:1px;">About Me</h2>
+                <div class="about-info"
+                    style="background: linear-gradient(120deg, #f8fafc 60%, #e3e9f7 100%); border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); padding: 36px 24px; max-width: 900px; margin: 0 auto;">
+                    <div class="about-card"
+                        style="display: flex; flex-wrap: wrap; background: transparent; border-radius: 18px; box-shadow: none; align-items: center; gap: 40px; justify-content: center;">
+                        <div
+                            style="flex: 0 0 300px; max-width: 340px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                            <img src="assets/img/profile.JPG" alt="Profile"
+                                style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 12px rgba(0,0,0,0.10); margin-bottom: 16px; border: 4px solid #fff;">
+                            <h4 style="margin: 0; font-weight: bold; color: #263159;"><i
+                                    class="fas fa-user-circle text-primary me-2"></i> Tang Xuan Duc</h4>
+                            <div style="color: #1976d2; font-size: 1rem; margin-bottom: 8px;"><i
+                                    class="fas fa-laptop-code me-2"></i>Full Stack Developer</div>
+                            <div
+                                style="margin-top: 18px; width: 100%; text-align: left; font-size: 1rem; color: #333; display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+                                <div><i class="fas fa-birthday-cake text-danger me-2"></i><strong>Birthday:</strong> 01
+                                    Jan 2001</div>
+                                <div><i class="fas fa-map-marker-alt text-success me-2"></i><strong>Location:</strong>
+                                    Hanoi, Vietnam</div>
+                                <div><i class="fas fa-envelope text-warning me-2"></i><strong>Email:</strong>
+                                    tangxuanduc.dev@gmail.com</div>
+                                <div><i class="fas fa-phone text-info me-2"></i><strong>Phone:</strong> +84 123 456 789
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="flex: 1 1 320px; min-width:260px; color: #222; font-size: 1.08rem; font-weight: 500; margin-top: 32px; display: flex; flex-direction: column; gap: 28px;">
+                            <div>
+                                <span class="badge bg-primary me-2" style="font-size:1rem; margin-bottom: 8px;"><i
+                                        class="fas fa-code me-1"></i>Front-end</span>
+                                <span class="badge bg-success me-2" style="font-size:1rem; margin-bottom: 8px;"><i
+                                        class="fas fa-server me-1"></i>Back-end</span>
+                                <span class="badge bg-warning text-dark me-2"
+                                    style="font-size:1rem; margin-bottom: 8px;"><i
+                                        class="fas fa-pencil-ruler me-1"></i>UI/UX</span>
+                                <span class="badge bg-info text-dark" style="font-size:1rem; margin-bottom: 8px;"><i
+                                        class="fas fa-users me-1"></i>Teamwork</span>
+                            </div>
+                            <ul style="padding-left: 20px; color: #222; margin-bottom: 0;">
+                                <li style="margin-bottom:10px;">5+ năm phát triển web (Ecommerce, CMS, EDI, WMS)</li>
+                                <li style="margin-bottom:10px;">Thành thạo: HTML, CSS, JS, .NET, SQL, Git</li>
+                                <li>Kỹ năng teamwork, tự học, giải quyết vấn đề</li>
+                            </ul>
+                            <div
+                                style="background: linear-gradient(90deg, #ffe082 0%, #fffde7 100%); border-radius: 14px; padding: 18px 22px; box-shadow: 0 2px 12px rgba(255,193,7,0.10); display: flex; align-items: flex-start; gap: 14px; border-left: 6px solid #ffb300;">
+                                <div style="font-size: 2rem; color: #ffb300; line-height: 1;"><i
+                                        class="fas fa-bullseye"></i></div>
+                                <div style="flex:1;">
+                                    <div
+                                        style="font-weight: 700; color: #b26a00; font-size: 1.1rem; margin-bottom: 2px; letter-spacing: 0.5px;">
+                                        Mục tiêu nghề nghiệp</div>
+                                    <div style="color: #795548; font-size: 1.05rem; line-height: 1.6;">Tạo ra sản phẩm
+                                        số có giá trị & truyền cảm hứng sáng tạo.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+        </div>
+
+        <!-- Resume -->
+        <div id="resume" class="tab-content">
+            <section>
+                <h2>Resume</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>TRUECOMMERCE - DICENTRAL</h3>
+                        <p>TRUE-AUTO (Production - Automotive Supply Chain Solutions) | 04/2022 - 07/2025 | Team size:
+                            14</p>
+                        <p>TrueAuto is a cloud-based supply chain management solution that digitally connects you to
+                            your customers, suppliers, buyers, and 3PLs on a single platform, providing real-time
+                            automation, exception alerts, and instant access to business critical transactions.</p>
+                        <ul>
+                            <li>Developed and maintained web applications using .NET technologies (ASP.NET, .NET Core,
+                                C#.NET, LINQ, SQL Server).</li>
+                            <li>Fixed bugs, implemented enhancements, and improved web functionality and speed.</li>
+                            <li>Migrated features from .NET Framework to .NET Core, handled EDI, print reports, and
+                                label generation.</li>
+                            <li>Handled validation, EDI document processing, and automated email notifications.</li>
+                            <li>Implemented replacement service for EDI workflows and uploaded master data CSV files.
+                            </li>
+                            <li>Developed unit tests with NUnit and supported QA/QC testing.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>CARPTECH CORP</h3>
+                        <p>WELLSPRINGS - CMS (.NET Core) | 04/2021 - 12/2021 | Team size: 15</p>
+                        <p>Wellspring helps professionalize school management, enabling multi-dimensional interaction
+                            between school, parents, teachers, and students.</p>
+                        <ul>
+                            <li>Developed and maintained web applications using ASP.NET, C#.NET, LINQ, MS SQL.</li>
+                            <li>Built custom REST APIs and integrated with mobile apps.</li>
+                            <li>Fixed bugs, implemented enhancements, and improved web functionality and speed.</li>
+                            <li>Consulted with customers and continuously improved the system.</li>
+                            <li>Handled features: Authentication, Students, Teachers, Classes, Attendance, Medical,
+                                Feedback, Announcements, etc.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>CARPTECH CORP</h3>
+                        <p>CHAMP SOLUTION - AEON (.NET Core - AngularJS) (Outsource) | 11/2020 - 04/2021 | Team size: 11
+                        </p>
+                        <p>Aeon is HRM software, helping to professionalize HR operations, manage attendance, leave, and
+                            employee benefits.</p>
+                        <ul>
+                            <li>Developed and maintained web applications using ASP.NET 4.7, C#.NET, LINQ, MS SQL.</li>
+                            <li>Built custom REST APIs and integrated with HRM modules.</li>
+                            <li>Fixed bugs, implemented enhancements, and improved web functionality and speed.</li>
+                            <li>Consulted with customers and continuously improved the system.</li>
+                            <li>Handled features: Handover Resignation, Register Bus Station, Overtime, Business Trip.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>TOP PRO SYSTEM</h3>
+                        <p>ASP.NET MVC | 08/2020 - 11/2020 | Team size: 6</p>
+                        <p>TopProSystem is a WMS that helps manage warehouses, minimizing manual work.</p>
+                        <ul>
+                            <li>Developed and maintained web applications using ASP.NET 4.7, C#.NET, LINQ, MS SQL.</li>
+                            <li>Built custom REST APIs and integrated with warehouse modules.</li>
+                            <li>Fixed bugs, implemented enhancements, and improved web functionality and speed.</li>
+                            <li>Consulted with customers and continuously improved the system.</li>
+                            <li>Handled features: Warehouse, Release product, etc.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <section>
+                <h2>Skills</h2>
+                <div class="skills-accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-server"></i>
+                                Backend</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name"><b>Ngôn ngữ & Framework:</b> C#, .NET Framework, .NET Core,
+                                    ASP.NET, ADO.NET, LINQ, Winform, ASP.NET MVC</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name"><b>API & Service:</b> RESTful API, Web API, SignalR, JWT, OAuth2
+                                </div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name"><b>Quy trình:</b> EDI, WMS, CMS, Ecommerce, HRM</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-code"></i>
+                                Frontend</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name"><b>Ngôn ngữ:</b> HTML5, CSS3, JavaScript (ES6+)</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name"><b>UI/UX:</b> Responsive Design, Figma, Photoshop, Bootstrap
+                                </div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-database"></i>
+                                Database</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name"><b>Hệ quản trị:</b> SQL Server, MySQL, Microsoft Access</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name"><b>Kỹ năng:</b> Tối ưu truy vấn, thiết kế CSDL, backup/restore,
+                                    migration</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-tools"></i> Tools &
+                                DevOps</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name"><b>Quản lý mã nguồn:</b> Git, GitHub, GitLab, Bitbucket,
+                                    SourceTree</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <div class="skill-name"><b>Quản lý dự án:</b> Jira, Azure DevOps, TFS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header" type="button"><span><i class="fa fa-laptop-code"></i>
+                                IDEs</span><i class="fa fa-chevron-down"></i></button>
+                        <div class="accordion-body">
+                            <div class="skill">
+                                <div class="skill-name"><b>IDE:</b> Visual Studio 2019/2022, VS Code, SSMS</div>
+                                <div class="skill-bar-container">
+                                    <div class="skill-bar" data-level="80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Portfolio -->
+        <div id="portfolio" class="tab-content">
+            <section>
+                <h2>Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-project="truecommerce">
+                        <img src="assets/img/profile.JPG" alt="TRUECOMMERCE - DICENTRAL">
+                        <div class="overlay">
+                            <h3>TRUECOMMERCE - DICENTRAL</h3>
+                            <p>Cloud-based supply chain management solution. Role: .NET Developer, EDI, automation,
+                                reporting, validation, migration.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-project="wellsprings">
+                        <img src="assets/img/profile.JPG" alt="WELLSPRINGS - CMS">
+                        <div class="overlay">
+                            <h3>WELLSPRINGS - CMS</h3>
+                            <p>School management system. Role: Backend, API, authentication, attendance, feedback,
+                                announcements.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-project="champ">
+                        <img src="assets/img/profile.JPG" alt="CHAMP SOLUTION - AEON">
+                        <div class="overlay">
+                            <h3>CHAMP SOLUTION - AEON</h3>
+                            <p>HRM software for attendance, leave, benefits. Role: Backend, API, HRM modules,
+                                resignation, overtime, business trip.</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item" data-project="toppro">
+                        <img src="assets/img/profile.JPG" alt="TOP PRO SYSTEM">
+                        <div class="overlay">
+                            <h3>TOP PRO SYSTEM</h3>
+                            <p>Warehouse management system. Role: Backend, API, warehouse, release product, automation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="tab-content">
+            <section>
+                <h2>Contact</h2>
+                <div class="contact-simple"
+                    style="margin: 40px auto 0 auto; max-width: 700px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); display: flex; flex-wrap: wrap; align-items: stretch; overflow: hidden; border: 1px solid #e3e9f7;">
+                    <form class="contact-form"
+                        style="flex:1; min-width: 220px; max-width: 340px; display: flex; flex-direction: column; gap: 16px; background: none; box-shadow: none; padding: 28px 18px; align-items: stretch;">
+                        <div
+                            style="display: flex; align-items: center; gap: 8px; background: #f6f8fa; border-radius: 8px; padding: 10px 14px; border: 1px solid #e3e9f7;">
+                            <i class="fa fa-user" style="color:#888;font-size:1rem;"></i>
+                            <input type="text" placeholder="Your Name"
+                                style="background: transparent; border: none; outline: none; color: #222; width: 100%; font-size: 1rem;"
+                                required>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; gap: 8px; background: #f6f8fa; border-radius: 8px; padding: 10px 14px; border: 1px solid #e3e9f7;">
+                            <i class="fa fa-envelope" style="color:#888;font-size:1rem;"></i>
+                            <input type="email" placeholder="Your Email"
+                                style="background: transparent; border: none; outline: none; color: #222; width: 100%; font-size: 1rem;"
+                                required>
+                        </div>
+                        <div
+                            style="display: flex; align-items: flex-start; gap: 8px; background: #f6f8fa; border-radius: 8px; padding: 10px 14px; border: 1px solid #e3e9f7;">
+                            <i class="fa fa-comment-dots" style="color:#888; margin-top: 4px;font-size:1rem;"></i>
+                            <textarea rows="4" placeholder="Message"
+                                style="background: transparent; border: none; outline: none; color: #222; width: 100%; font-size: 1rem; resize: vertical;"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            style="background: #f6f8fa; color: #222; font-weight: 600; border: 1px solid #e3e9f7; border-radius: 8px; padding: 12px 0; font-size: 1rem; cursor: pointer; width:100%; transition: background 0.2s;">Send
+                            Message</button>
+                    </form>
+                    <div
+                        style="flex:1; min-width: 180px; max-width: 300px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; justify-content: center; padding: 28px 18px; background: #f6f8fa; border-left: 1px solid #e3e9f7;">
+                        <div style="font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; color: #222;"><i
+                                class="fa fa-address-card me-2" style="color:#888;"></i>Contact Info</div>
+                        <div style="display: flex; align-items: center; gap: 8px;font-size:0.98rem;"><i
+                                class="fa fa-envelope" style="color:#888;"></i> <a
+                                href="mailto:tangxuanduc.dev@gmail.com"
+                                style="color:#222; text-decoration: none;">tangxuanduc.dev@gmail.com</a></div>
+                        <div style="display: flex; align-items: center; gap: 8px;font-size:0.98rem;"><i
+                                class="fa fa-phone" style="color:#888;"></i> <a href="tel:+84123456789"
+                                style="color:#222; text-decoration: none;">+84 123 456 789</a></div>
+                        <div style="display: flex; align-items: center; gap: 8px;font-size:0.98rem;"><i
+                                class="fab fa-github" style="color:#888;"></i> <a href="https://github.com/duckio2016"
+                                target="_blank" style="color:#222; text-decoration: none;">duckio2016</a></div>
+                        <div style="display: flex; align-items: center; gap: 8px;font-size:0.98rem;"><i
+                                class="fab fa-facebook" style="color:#888;"></i> <a
+                                href="https://facebook.com/duckio2016" target="_blank"
+                                style="color:#222; text-decoration: none;">Facebook</a></div>
+                    </div>
+                </div>
+                <style>
+                    @media (max-width: 800px) {
+                        .contact-simple {
+                            flex-direction: column !important;
+                            min-width: unset !important;
+                            max-width: 98vw !important;
+                        }
+
+                        .contact-simple>form,
+                        .contact-simple>div {
+                            max-width: 100% !important;
+                            min-width: unset !important;
+                            border-left: none !important;
+                            border-top: 1px solid #e3e9f7 !important;
+                        }
+
+                        .contact-simple>div {
+                            padding-top: 18px !important;
+                        }
+                    }
+                </style>
+            </section>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        © 2025 Tang Xuan Duc | All rights reserved.
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
